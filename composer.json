@@ -1,0 +1,20 @@
+{
+    "name": "lspbupt/yt-sso",
+    "description": "yt的common包",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "李仕鹏",
+            "email": "lspbupt@sina.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "2.0.7",
+        "lspbupt/yii2-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "lspbupt\\common\\": ""
+        },
+    }
+}
