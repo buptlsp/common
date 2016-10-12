@@ -1,5 +1,5 @@
 <?php
-namespace \lspbupt\common\actions;
+namespace lspbupt\common\actions;
 
 use Yii;
 use yii\base\Action;
