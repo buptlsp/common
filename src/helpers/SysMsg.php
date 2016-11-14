@@ -100,7 +100,7 @@ class SysMsg
         );
         if(isset(self::$textTemplates[$temp])) {
             $data['code'] = self::$textTemplates[$temp]['code'];
-            $data['errmsg'] = self::getErrMsg($index);
+            $data['message'] = self::getErrMsg($index);
         }
         return $data;
     }
@@ -113,7 +113,7 @@ class SysMsg
             'data' => $data, 
         );
         if(isset(self::$textTemplates[$index])) {
-            $data['errmsg'] = self::get($index);
+            $data['message'] = self::get($index);
         }
         return $data;
     }
