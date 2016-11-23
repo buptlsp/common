@@ -21,17 +21,17 @@ class InnerHelper extends \lspbupt\curl\CurlHttp
             if($code == 200) {
                 $ret = json_decode($response, true);
                 if(empty($ret)) {
-                    Yii::warning("error!".$response, "curl." . $reqUrl);
+                    Yii::warning("error![$reqUrl]" . $response, "curl.$this->appkey");
                     return $data;
                 }
                 if(!empty($ret['code'])) {
-                    Yii::warning("error!".$response, "curl." . $reqUrl);
+                    Yii::warning("error![$reqUrl]" . $response, "curl.$this->appkey");
                     return $ret;
                 }
-                Yii::info("ok!", "curl." . $reqUrl);
+                Yii::info("ok![$reqUrl]", "curl.$this->appkey");
                 return $ret;
             }
-            Yii::error("error", "curl." . $reqUrl);
+            Yii::error("error![$reqUrl]", "curl.$this->appkey");
             return $data;
         };
     }
