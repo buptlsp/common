@@ -18,23 +18,23 @@ class InnerHelper extends \lspbupt\curl\CurlHttp
                 'data' => [],
             ];
 
-            $reqUrl = sprintf(" [%s] ", $curlHttp->getUrl());
+            $logInfo = sprintf(" [%s] [%s]", $curlHttp->getUrl(), $response);
             $category = "curl." . $this->appkey;
 
             if($code == 200) {
                 $ret = json_decode($response, true);
                 if(empty($ret)) {
-                    Yii::warning("error!" . $reqUrl . $response, $category);
+                    Yii::warning("error!" . $logInfo, $category);
                     return $data;
                 }
                 if(!empty($ret['code'])) {
-                    Yii::warning("error!" . $reqUrl . $response, $category);
+                    Yii::warning("error!" . $logInfo, $category);
                     return $ret;
                 }
-                Yii::info("ok!" . $reqUrl, $category);
+                Yii::info("ok!" . $logInfo, $category);
                 return $ret;
             }
-            Yii::error("error" . $reqUrl,  $category);
+            Yii::error("error" . $logInfo,  $category);
             return $data;
         };
     }
