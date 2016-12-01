@@ -17,20 +17,24 @@ class InnerHelper extends \lspbupt\curl\CurlHttp
                 'message' => '网络错误',
                 'data' => [],
             ];
+
+            $logInfo = sprintf(" [%s] [%s]", $curlHttp->getUrl(), $response);
+            $category = "curl." . $this->appkey;
+
             if($code == 200) {
                 $ret = json_decode($response, true);
                 if(empty($ret)) {
-                    Yii::warning("error!".$response, "curl.admin");
+                    Yii::warning("error!" . $logInfo, $category);
                     return $data;
                 }
                 if(!empty($ret['code'])) {
-                    Yii::warning("error!".$response, "curl.admin");
+                    Yii::warning("error!" . $logInfo, $category);
                     return $ret;
                 }
-                Yii::info("ok!", "curl.admin");
+                Yii::info("ok!" . $logInfo, $category);
                 return $ret;
             }
-            Yii::error("error", "curl.admin");
+            Yii::error("error" . $logInfo,  $category);
             return $data;
         };
     }
